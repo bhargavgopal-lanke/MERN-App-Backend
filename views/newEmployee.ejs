@@ -1,0 +1,32 @@
+<%- include('./includes/head.ejs') %>
+
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="my-3">New Employee</h1>
+		<div class="m-3 float-right">
+			<a href="/" class="redirectpage">Redirect to emloyee list</a>
+		</div>
+		<div class="col-md-4" style="clear: both;">
+		<form action="/employee/createEmployee" method="POST">
+			<div class="form-group">
+				<label>Email </label><br />
+				<input type="email" class="form-control" name="email">
+			</div>
+			<div class="form-group">
+				<label>name</label><br />
+				<input type="text" class="form-control" name="name" >
+			</div>
+			<div class="form-group">
+				<label>Phone</label><br />
+				<input type="text" class="form-control" name="phone" >
+			</div>
+			<!-- <input type="text" name="id"  /> -->
+			<button type="submit" class="btn btn-info">Add User</button>
+			</div>
+		</form>
+	</div>
+
+
+<%- include('./includes/end.ejs') %>

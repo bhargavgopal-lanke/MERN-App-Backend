@@ -1,0 +1,40 @@
+<%- include('./includes/head.ejs') %>
+
+</head>
+<body>
+	<div class="container">
+		<h1 class="my-3">Update Employee</h1>
+		
+		<div class=" m-3 float-right">
+			<a href="/" class="redirectpage">Redirect to emloyee list</a>
+		</div>
+		<div class="col-md-4" style="clear: both;">
+	<% for(let updateResult of empresult) { %>
+	<div class="container">
+		
+		<form action="/employee/updateEmployee?id=<%= updateResult.id %>" method="post">
+			<div class="form-group">
+				<label>Email </label><br />
+				<input type="email" name="email" class="form-control" value="<%= updateResult.email %>">
+			</div>
+			<div class="form-group">
+				<label>name</label><br />
+				<input type="text" name="name" class="form-control" value="<%= updateResult.name %>">
+			</div>
+			<div class="form-group">
+				<label>Phone</label><br />
+				<input type="text" name="phone" class="form-control" value="<%= updateResult.phone %>">
+			</div>
+			<!-- <input type="text" name="id" value="<%= updateResult.id %>" /> -->
+			<button type="submit" class="btn btn-info">Update</button>
+		</form>
+	</div>
+</div>
+
+<% } %>
+
+
+</div>
+
+
+<%- include('./includes/end.ejs') %>

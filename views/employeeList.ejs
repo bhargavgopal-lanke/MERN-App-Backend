@@ -1,0 +1,61 @@
+<%- include('./includes/head.ejs') %>
+
+</head>
+<body>
+
+
+
+
+
+<div class="container">
+<h1 class="mb-5">Employee List</h1>
+
+<% if(message.length > 0) {  %>
+			<div class="alert alert-success">
+				<%= message %>
+			</div>
+		<% } %>
+		<% if(errormessage.length > 0) {  %>
+			<div class="alert alert-danger">
+				<%= errormessage %>
+			</div>
+		<% } %>
+<div class="float-right mt-5">
+	<a href="/employee/newEmployee" class="btn btn-success mb-3">New Employee</a>
+</div>
+	
+
+
+	<table class="table table-bordered ">
+		
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Email</th>
+				<th>Name</th>
+				<th>Number</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<% for(let listResult of employ) { %>
+
+				<td><%= listResult.id %></td>
+				<td><%= listResult.email %></td>
+				<td><%= listResult.name %></td>
+				<td><%= listResult.phone %></td>
+				<td><a href="/employee/employeeEdit?id=<%= listResult.id %>" class="btn btn-primary">Edit</a></td>
+				<td><a href="/employee/deleteEmployee?id=<%= listResult.id %>" class="btn btn-danger">Delete</a></td>
+			</tr>
+			<% } %>
+
+		</tbody>
+			
+	</table>
+
+	</div>
+
+
+<%- include('./includes/end.ejs') %>
